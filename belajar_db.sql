@@ -1,7 +1,7 @@
 CREATE TABLE dosen (
-    id_doesn SERIAL PRIMARY KEY,
+    id_dosen SERIAL PRIMARY KEY,
     nama_dosen VARCHAR(100) NOT NULL,
-    spesialisasi VARCHAR(50)
+    spesialis VARCHAR(50)
 );
 
 CREATE TABLE mahasiswa (
@@ -11,10 +11,8 @@ CREATE TABLE mahasiswa (
     id_dosen_wali INT REFERENCES dosen(id_dosen)
 );
 
-INSERT INTO dosen (nama_dosen, spesialisasi) VALUES ('Budi Santoso', 'Inustrial Engginering');
-INSERT INTO mahasiswa (nim, nama_mahasiswa, jurusan, id_dosen_wali);
-VALUES ('2026001', 'rafli', 'Industrial Engginering', 1);
+INSERT INTO dosen (nama_dosen, spesialis) VALUES ('Budi santoso', 'Industrial Engineering');
+INSERT INTO dosen (nim, nama_mahasiswa, jurusan, id_dosen_wali) VALUES ('2026001', 'Rafli', 'Indsutrial Engineering', 1);
 
-SELECT mahasiswa.nama_mahasiswa, dosen.nama_dosen
-FROM mahasiswa
+SELECT mahasiswa.nama_mahasiswa, dosen.nama_dosen FROM 
 JOIN dosen ON mahasiswa.id_dosen_wali = dosen.id_dosen;
